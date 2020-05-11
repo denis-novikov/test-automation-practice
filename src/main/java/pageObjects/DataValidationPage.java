@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class DataValidationPage extends BasePage {
 
@@ -13,8 +15,7 @@ public class DataValidationPage extends BasePage {
         super(driver);
     }
 
-    // TODO : improve xpath
-    @FindBy(how = How.XPATH, using = "/html/body/div/demo-app/dx-data-grid/div/div[4]/div/div/div[3]/div[1]")
+    @FindBy(how = How.XPATH, using = "//i[@class='dx-icon dx-icon-edit-button-addrow']")
     private WebElement btn_addContact;
 
     @FindBy(how = How.XPATH, using = "//tr[@class='dx-row dx-data-row dx-column-lines dx-row-inserted']//td[5]")
@@ -41,6 +42,8 @@ public class DataValidationPage extends BasePage {
     }
 
     public void addNewContact() {
+        wait = new WebDriverWait(driver, 30);
+        wait.until(ExpectedConditions.elementToBeClickable(btn_addContact));
         btn_addContact.click();
     }
 
