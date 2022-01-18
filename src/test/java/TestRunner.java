@@ -10,6 +10,5 @@ import org.junit.runner.RunWith;
         glue = "stepDefinitions",
         monochrome = true
 )
-
 public class TestRunner {
 }
