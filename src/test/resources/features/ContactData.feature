@@ -1,25 +1,23 @@
 Feature: I as a user who is managing user contact data
 
-  Background:
-    Given I am on BasePage
-    And I am navigating to DataValidation page
-    And I am switching to Angular framework
-    And starting to work with widget
+  Background: : Some scenario
+    Given Widgets Gallery Page is open
+    And User is navigating to 'Editing' > 'Data Validation' page
+    And select 'Angular' framework
+    And switch to demo frame
 
   Scenario: I want to add valid email to contact data
-    When I am adding new contact
-    And enter an test-1@gmail.com address in email field
-    Then email field is highlighted with green
-
+    When user adds new contact
+    And enter an 'test-1@gmail.com' address in email field
+    Then email field is highlighted with GREEN
 
   Scenario Outline: I want to be informed about invalid email
-    When I am adding new contact
-    And enter an <email> address in email field
-    Then email field is highlighted with red
-    And I can see an error <message>
+    When user adds new contact
+    And enter an '<email>' address in email field
+    Then email field is highlighted with RED
+    And error '<message>' is shown
 
     Examples:
       | email               | message           |
-      |                     | Email is required |
       | test                | Email is invalid  |
       | test.test@gmail.com | Email is invalid  |

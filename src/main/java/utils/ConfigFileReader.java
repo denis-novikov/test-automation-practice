@@ -11,7 +11,7 @@ public class ConfigFileReader {
 
     public ConfigFileReader() {
         BufferedReader reader;
-        String propFilePath = "configs/Config.properties";
+        String propFilePath = "configs/config.properties";
         try {
             reader = new BufferedReader(new FileReader(propFilePath));
             properties = new Properties();
@@ -23,16 +23,7 @@ public class ConfigFileReader {
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            throw new RuntimeException("Config.properties not found at " + propFilePath);
-        }
-    }
-
-    public String getDriver() {
-        String driverPath = properties.getProperty("driverPath");
-        if (driverPath != null) {
-            return driverPath;
-        } else {
-            throw new RuntimeException("driverPath not specified in the Config.properties file.");
+            throw new RuntimeException("config.properties not found at " + propFilePath);
         }
     }
 
@@ -41,7 +32,7 @@ public class ConfigFileReader {
         if (url != null) {
             return url;
         } else {
-            throw new RuntimeException("url not specified in the Config.properties file.");
+            throw new RuntimeException("url not specified in the config.properties file.");
         }
     }
 }
